@@ -2,6 +2,9 @@
 import React, { Component } from "react";
 import { Platform, View, Image, Text, StyleSheet } from "react-native";
 
+const pedra = require('../../img/pedra.png');
+const papel = require('../../img/papel.png');
+const tesoura = require('../../img/tesoura.png');
 
 class Icone extends Component {
     render() {
@@ -12,21 +15,21 @@ class Icone extends Component {
         return (
           <View style={styles.icone}>
             <Text style={styles.txtJogador}> {this.props.jogador}: </Text>
-            <Image source={require('../../img/pedra.png')} />
+            <Image source={pedra} />
           </View>
         );
       } else if (this.props.escolha == 'PAPEL') {
         return (
           <View style={styles.icone}>
             <Text style={styles.txtJogador}> {this.props.jogador}: </Text>
-            <Image source={require('../..//img/papel.png')} />
+            <Image source={papel} />
           </View>
         );
       } else if (this.props.escolha == 'TESOURA') {
         return (
           <View style={styles.icone}>
             <Text style={styles.txtJogador}> {this.props.jogador}: </Text>
-            <Image source={require('../../img/tesoura.png')} />
+            <Image source={tesoura} />
           </View>
         );
       } else {
