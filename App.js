@@ -5,13 +5,13 @@
  */
 
 import React, { Component } from "react";
-import { Platform, StyleSheet, Text, View, Button, Image } from "react-native";
+import { Platform, StyleSheet, Text, View, Button, Image, TouchableOpacity } from "react-native";
 
 class Topo extends Component {
   render() {
     return (
       <View>
-        <Image source={require('./img/jokenpo.png')} />
+        <Image source={require('./img/joken-raj.png')} />
       </View>
     );
   }
@@ -80,31 +80,31 @@ export default class App extends Component<{}> {
 
       if (escolhaComputador === "PEDRA") {
         if (escolhaUsuario === "TESOURA") {
-          resultado = "COMPUTADOR GANHOU";
+          resultado = "SE FODEU";
         }
 
         if (escolhaUsuario === "PAPEL") {
-          resultado = "VOCÊ GANHOU";
+          resultado = "BOA MLK!";
         }
       }
 
       if (escolhaComputador === "PAPEL") {
         if (escolhaUsuario === "PEDRA") {
-          resultado = "COMPUTADOR GANHOU";
+          resultado = "SE FODEU";
         }
 
         if (escolhaUsuario === "TESOURA") {
-          resultado = "VOCÊ GANHOU";
+          resultado = "BOA MLK!";
         }
       }
 
       if (escolhaComputador === "TESOURA") {
         if (escolhaUsuario === "PEDRA") {
-          resultado = "VOCÊ GANHOU";
+          resultado = "BOA MLK!";
         }
 
         if (escolhaUsuario === "PAPEL") {
-          resultado = "COMPUTADOR GANHOU";
+          resultado = "SE FODEU";
         }
       }
     }
@@ -124,13 +124,25 @@ export default class App extends Component<{}> {
 
         <View style={styles.painelAcoes}>
           <View style={styles.btnEscolha} >
-            <Button title="PEDRA" onPress={() => this.jokenpo("PEDRA")} />
+            <TouchableOpacity onPress={() => this.jokenpo("PEDRA")} >
+              <Text style = {styles.button}>
+                PEDRA
+              </Text>
+            </TouchableOpacity>    
+          </View>
+          <View style = {styles.container} >
+            <TouchableOpacity onPress={() => this.jokenpo("PAPEL")} >
+              <Text style = {styles.button}>
+                PAPEL
+              </Text>
+            </TouchableOpacity>
           </View>
           <View style={styles.btnEscolha} >
-            <Button title="PAPEL" onPress={() => this.jokenpo("PAPEL")} />
-          </View>
-          <View style={styles.btnEscolha} >
-            <Button title="TESOURA" onPress={() => this.jokenpo("TESOURA")} />
+            <TouchableOpacity onPress={() => this.jokenpo("TESOURA")} >
+              <Text style = {styles.button}>
+                TESOURA
+              </Text>
+            </TouchableOpacity>
           </View>
         </View>
 
@@ -149,6 +161,9 @@ const styles = StyleSheet.create({
   btnEscolha: {
     width: 100
   },
+  btnEscolha2: {
+    width: 100
+  },
   painelAcoes: {
     marginTop: 10,
     flexDirection: 'row',
@@ -161,7 +176,7 @@ const styles = StyleSheet.create({
   txtResultados: {
     fontSize: 25,
     fontWeight: 'bold',
-    color: 'blue',
+    color: '#703216',
     height: 60
   },
   icone: {
@@ -170,5 +185,20 @@ const styles = StyleSheet.create({
   },
   txtJogador: {
     fontSize: 18
-  }
+  },
+  button: {
+    width: 100,
+    borderWidth: 1,
+    padding: 10,
+    backgroundColor: '#FBCE5C', 
+    color: '#fff',
+    fontWeight: 'bold',
+    borderColor: '#fff',
+    textAlign: 'center'
+ },
+ container: {
+  flex: 1,
+  justifyContent: 'center',
+  alignItems: 'center',
+},
 });
